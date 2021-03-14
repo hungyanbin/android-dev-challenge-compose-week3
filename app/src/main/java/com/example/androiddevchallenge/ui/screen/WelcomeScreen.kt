@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.*
+import com.example.androiddevchallenge.ui.widget.BloomRoundedButtonBig
 
 //TODO contentDescription
 @Composable
@@ -62,26 +63,11 @@ fun WelcomeScreen(darkTheme: Boolean = isSystemInDarkTheme()) {
                 textAlign = TextAlign.Center
             )
 
-
-            Button(
+            BloomRoundedButtonBig(
                 onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.secondary
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp)
-                    .height(48.dp),
-                shape = RoundedCornerShape(50)
-            ) {
-                Text(
-                    text = stringResource(id = R.string.welcome_create_account),
-                    style = MaterialTheme.typography.button,
-                    modifier = Modifier.fillMaxWidth(),
-                    color = MaterialTheme.colors.onSecondary,
-                    textAlign = TextAlign.Center
-                )
-            }
+                modifier = Modifier,
+                text = stringResource(id = R.string.welcome_create_account)
+            )
 
             Button(
                 onClick = { /*TODO*/ },
