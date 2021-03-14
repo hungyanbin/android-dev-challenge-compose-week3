@@ -23,6 +23,11 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.screen.LoginScreen
 import com.example.androiddevchallenge.ui.screen.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
@@ -40,7 +45,20 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp(darkTheme:Boolean = false) {
-    WelcomeScreen(darkTheme)
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = "welcome") {
+        composable("welcome") {
+            WelcomeScreen(
+                darkTheme,
+                onLoginClick = {
+                    navController.navigate("login")
+                }
+            )
+        }
+        composable("login") {
+            LoginScreen()
+        }
+    }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)

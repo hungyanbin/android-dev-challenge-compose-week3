@@ -20,7 +20,7 @@ import com.example.androiddevchallenge.ui.widget.BloomRoundedButtonBig
 
 //TODO contentDescription
 @Composable
-fun WelcomeScreen(darkTheme: Boolean = isSystemInDarkTheme()) {
+fun WelcomeScreen(darkTheme: Boolean = isSystemInDarkTheme(), onLoginClick: () -> Unit = {}) {
     val welcomeBgRes = if (darkTheme) R.drawable.ic_dark_welcome_bg else R.drawable.ic_light_welcome_bg
     val welcomeIllosRes = if (darkTheme) R.drawable.ic_dark_welcome_illos else R.drawable.ic_light_welcome_illos
     val welcomeLogoRes = if (darkTheme) R.drawable.ic_dark_logo else R.drawable.ic_light_logo
@@ -70,7 +70,7 @@ fun WelcomeScreen(darkTheme: Boolean = isSystemInDarkTheme()) {
             )
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { onLoginClick() },
                 elevation = ButtonDefaults.elevation(defaultElevation = 0.dp),
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.Transparent
