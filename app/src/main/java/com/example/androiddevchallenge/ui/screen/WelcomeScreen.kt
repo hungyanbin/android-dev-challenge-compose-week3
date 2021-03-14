@@ -1,6 +1,7 @@
 package com.example.androiddevchallenge.ui.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -17,22 +18,25 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.*
 
 //TODO contentDescription
-//TODO Dark theme
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(darkTheme: Boolean = isSystemInDarkTheme()) {
+    val welcomeBgRes = if (darkTheme) R.drawable.ic_dark_welcome_bg else R.drawable.ic_light_welcome_bg
+    val welcomeIllosRes = if (darkTheme) R.drawable.ic_dark_welcome_illos else R.drawable.ic_light_welcome_illos
+    val welcomeLogoRes = if (darkTheme) R.drawable.ic_dark_logo else R.drawable.ic_light_logo
+
     Scaffold(
-        backgroundColor = pink100
+        backgroundColor = MaterialTheme.colors.primary
     ) {
         // background
         Image(
-            painter = painterResource(id = R.drawable.ic_light_welcome_bg),
+            painter = painterResource(id = welcomeBgRes),
             contentDescription = null
         )
 
         Column {
             Spacer(modifier = Modifier.height(72.dp))
             Image(
-                painter = painterResource(id = R.drawable.ic_light_welcome_illos),
+                painter = painterResource(id = welcomeIllosRes),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(start = 88.dp)
@@ -41,7 +45,7 @@ fun WelcomeScreen() {
             )
             Spacer(modifier = Modifier.height(48.dp))
             Image(
-                painter = painterResource(id = R.drawable.ic_light_logo),
+                painter = painterResource(id = welcomeLogoRes),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -54,7 +58,7 @@ fun WelcomeScreen() {
                 modifier = Modifier
                     .paddingFromBaseline(top = 24.dp, bottom = 40.dp)
                     .fillMaxWidth(),
-                color = gray,
+                color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Center
             )
 
@@ -62,7 +66,7 @@ fun WelcomeScreen() {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = gray
+                    backgroundColor = MaterialTheme.colors.secondary
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -74,7 +78,7 @@ fun WelcomeScreen() {
                     text = stringResource(id = R.string.welcome_create_account),
                     style = MaterialTheme.typography.button,
                     modifier = Modifier.fillMaxWidth(),
-                    color = white,
+                    color = MaterialTheme.colors.onSecondary,
                     textAlign = TextAlign.Center
                 )
             }
@@ -96,7 +100,7 @@ fun WelcomeScreen() {
                     text = stringResource(id = R.string.welcome_login),
                     style = MaterialTheme.typography.button,
                     modifier = Modifier.fillMaxWidth(),
-                    color = pink900,
+                    color = if (darkTheme) white else pink900,
                     textAlign = TextAlign.Center
                 )
             }
@@ -107,7 +111,7 @@ fun WelcomeScreen() {
 @Preview(widthDp = 360, heightDp = 640)
 @Composable
 private fun WelcomePreview() {
-    MyTheme() {
-        WelcomeScreen()
+    MyTheme(darkTheme = true) {
+        WelcomeScreen(darkTheme = true)
     }
 }

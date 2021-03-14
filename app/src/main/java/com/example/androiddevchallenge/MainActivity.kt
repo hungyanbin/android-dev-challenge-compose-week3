@@ -23,6 +23,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.ui.screen.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -38,10 +39,8 @@ class MainActivity : AppCompatActivity() {
 
 // Start building your app here!
 @Composable
-fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
-    }
+fun MyApp(darkTheme:Boolean = false) {
+    WelcomeScreen(darkTheme)
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
@@ -56,6 +55,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        MyApp()
+        MyApp(darkTheme = true)
     }
 }
