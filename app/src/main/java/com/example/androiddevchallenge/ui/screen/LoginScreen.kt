@@ -18,7 +18,7 @@ import com.example.androiddevchallenge.ui.widget.BloomRoundedButtonBig
 import com.example.androiddevchallenge.ui.widget.BloomBigTextField
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onLoginClick: () -> Unit) {
     val email: String = ""
     val password = ""
 
@@ -63,7 +63,7 @@ fun LoginScreen() {
             )
 
             BloomRoundedButtonBig(
-                onClick = { /*TODO*/ },
+                onClick = { onLoginClick() },
                 modifier = Modifier,
                 text = stringResource(id = R.string.welcome_login)
             )
@@ -76,6 +76,6 @@ fun LoginScreen() {
 fun LoginScreenPreview() {
     val darkTheme = true
     MyTheme(darkTheme = darkTheme) {
-        LoginScreen()
+        LoginScreen {}
     }
 }

@@ -27,6 +27,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.model.BloomTheme
+import com.example.androiddevchallenge.ui.screen.HomeScreen
 import com.example.androiddevchallenge.ui.screen.LoginScreen
 import com.example.androiddevchallenge.ui.screen.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -56,7 +58,26 @@ fun MyApp(darkTheme:Boolean = false) {
             )
         }
         composable("login") {
-            LoginScreen()
+            LoginScreen(
+                onLoginClick = {
+                    navController.navigate("home")
+                }
+            )
+        }
+
+        composable("home") {
+            HomeScreen(
+                listOf(
+                    BloomTheme("1", "https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "Deseert chic"),
+                    BloomTheme("2", "https://images.pexels.com/photos/1400375/pexels-photo-1400375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "Tiny terrariums"),
+                    BloomTheme("3", "https://images.pexels.com/photos/5699665/pexels-photo-5699665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "Deseert chic"),
+                    BloomTheme("4", "https://images.pexels.com/photos/6208086/pexels-photo-6208086.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "Deseert chic"),
+                    BloomTheme("5", "https://images.pexels.com/photos/3511755/pexels-photo-3511755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "Deseert chic"),
+                ),
+                listOf(
+
+                )
+            )
         }
     }
 }

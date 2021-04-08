@@ -20,7 +20,7 @@ fun BloomRoundedButtonBig(
     text: String
 ) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { onClick() },
         colors = ButtonDefaults.buttonColors(
             backgroundColor = MaterialTheme.colors.secondary
         ),

@@ -17,4 +17,10 @@
     <string name="login_field_email">Email address</string>
     <string name="login_field_password">Password (8+ characters)</string>
     <string name="login_terms">By clicking below, you agree to our Terms of Use and consent to our Privacy Policy</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_profile">Profile</string>
+    <string name="tab_cart">Cart</string>
+    <string name="home_search">Search</string>
+    <string name="home_browse_themes">Browse themes</string>
 </resources>
